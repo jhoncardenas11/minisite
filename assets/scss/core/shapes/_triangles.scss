@@ -1,0 +1,15 @@
+// Update: 21/06/2021
+
+//---------------------
+@mixin triangle-corner($attr: ()) {
+    $axis_y: mapv($attr, y, bottom);
+    $axis_x: mapv($attr, x, right);
+    $size_y: mapv($attr, size_y, 100px);
+    $size_x: mapv($attr, size_x, 100px);
+    $bd_style: mapv($attr, border_style, solid);
+    $color: mapv($attr, color, black);
+
+    @include whs(0);
+    border-#{$axis_y}: $size_y $bd_style $color;
+    border-#{$axis_x}: $size_x $bd_style transparent;
+}

@@ -1,0 +1,144 @@
+@import "variables";
+@import "base";
+@import "mediaqueries";
+@import "reset";
+@import "keyframes";
+@import "layout";
+@import "mixin";
+@import "silent_class";
+
+body {
+    @include scroll;
+    @include no-margins;
+    @include no-border;
+    background-color: $c2;
+
+    .headerBox{
+        position: relative;
+        width: 100%;
+        video{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+        .insideBox{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba($color: $c2, $alpha: 0.5);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                "info contact"
+                "insigns insigns"
+            ;
+            @include brp($b6){
+                grid-template-columns: 1fr;
+                grid-template-rows: 200px 150px auto;
+                grid-template-areas:
+                    "info"
+                    "contact"
+                    "insigns"
+                ;
+            }
+            .info{
+                grid-area: info;
+                align-self: center;
+                justify-self: center;
+                @include brp($b6){
+                    padding-left: 10px;
+                }
+                .t1{
+                    color: $c1;
+                    font-size: 50px;
+                    text-transform: uppercase;
+                }
+                .t2{
+                    color: $c1;
+                    font-size: 40px;
+                }
+            }
+            .contact{
+                grid-area: contact;
+                align-self: center;
+                justify-self: center;
+                @include brp($b6){
+                    align-self: flex-start;
+                    justify-self: center;
+                    padding-left: 10px;
+                }
+                @include brp($b9){
+                    align-self: flex-start;
+                    justify-self: flex-start;
+                    padding-left: 10px;
+                }
+                .p1{
+                    color: $c1;
+                    font-size: 30px;
+                }
+                .rsBox{
+                    margin-top: 20px;
+                    a{
+                        text-decoration: none;
+                        color: $c1;
+                        font-size: 40px;
+                        transition: all 0.5s ease;
+                        margin-right: 20px;
+                    }
+                    .mail{
+                        &:hover{
+                            color: $c3;
+                        }
+                    }
+                    .github{
+                        &:hover{
+                            color: $c5;
+                        }
+                    }
+                    .twitter{
+                        &:hover{
+                            color: $c4;
+                        }
+                    }
+                }
+            }
+            .insigns{
+                grid-area: insigns;
+                justify-self: center;
+                align-self: flex-start;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                @include brp($b6){
+                    justify-content: center;
+                }
+                i{
+                    font-size: 50px;
+                    @include brp($b6){
+                        font-size: 80px;
+                    }
+                }
+                .code{
+                    color: #00A98F;
+                }
+                .html{
+                    color: #E34F26;
+                }
+                .css{
+                    color: #00A4E4;
+                }
+                .js{
+                    color: #F7DF1E;
+                }
+                .angular{
+                    color: #B52E31;
+                }
+                .react{
+                    color: #00D8FF;
+                }
+            }
+        }
+    }
+}
